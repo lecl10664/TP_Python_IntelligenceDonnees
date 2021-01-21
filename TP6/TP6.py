@@ -138,14 +138,17 @@ kpss_test(fuel)
 # =============================================================================
 
 #1
+fuel
+fuel[1:]
 fuel_d = fuel.diff()
 fuel_d = fuel_d[1:]
 
 
 
+
 #2
 plt.title("diffrérentiation t - t+1 du chiffre d'affaire de carburant ")
-s.plot(figsize=(10,4))
+fuel_d.plot(figsize=(10,4))
 plt.show()
 
 
@@ -153,9 +156,9 @@ plt.show()
 #3
 f = plt.figure(figsize=(12,8))
 ax1 = f.add_subplot(211)
-f = sm.graphics.tsa.plot_acf(x, lags=20, ax=ax1)
+f = sm.graphics.tsa.plot_acf(fuel_d, lags=20, ax=ax1)
 ax2 = f.add_subplot(212)
-f = sm.graphics.tsa.plot_pacf(x, lags=20, ax=ax2)
+f = sm.graphics.tsa.plot_pacf(fuel_d, lags=20, ax=ax2)
 
 #4
 adf_test(fuel_d)
